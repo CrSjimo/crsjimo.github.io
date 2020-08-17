@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 姜懿真会
+title: 梦游仙人CRS的博客
 subtitle: ''
 description: ''
 keywords:
-author: Priory of Shiba
+author: 李星烨
 language: zh-CN
 timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://www.jyzh.de
+url: https://myxrcrs.de
 root: /
 permalink: :category/:title/
 permalink_defaults:
@@ -45,7 +45,7 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: false
   tab_replace: ''
@@ -90,14 +90,22 @@ include:
 exclude:
 ignore:
 
+mathjax:
+  tags: none # or 'ams' or 'all'
+  single_dollars: true # enable single dollar signs as in-line math delimiters
+  cjk_width: 0.9 # relative CJK char width
+  normal_width: 0.6 # relative normal (monospace) width
+  append_css: true # add CSS to every page
+  every_page: true # if true, every page will be rendered by mathjax regardless the `mathjax` setting in Front-matter of each article
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: icarus
+theme: nexmoe
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: 'git'
-  repo: git@github.com:priory-of-shiba/homepage.git
-  brunch: gh-pages
+  repo: git@github.com:CrSjimo/crsjimo.github.io.git
+  branch: gh-pages
