@@ -5,6 +5,7 @@ tags:
   - ymoi
   - 矩阵
   - 线性代数
+category: 算法竞赛
 ---
 
 # 基本概念
