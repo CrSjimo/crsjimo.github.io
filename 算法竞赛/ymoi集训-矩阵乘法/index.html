@@ -15,12 +15,12 @@
   <meta name="description" content="基本概念 一个n×mn \times mn×m的矩阵可以被看做一个nnn行mmm列的数阵,一般用一个大写字母表示： A&#x3D;[114514],B&#x3D;[10982167]A&#x3D;\begin{bmatrix}1&amp;1&amp;4\\ 5&amp;1&amp;4\end{bmatrix}, B&#x3D;\begin{bmatrix}1&amp;0\\ 9&amp;8\\ 2&amp;1\\ 6&amp;7\en">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ymoi集训-矩阵乘法">
-<meta property="og:url" content="https://myxrcrs.de/uncategorized/ymoi%E9%9B%86%E8%AE%AD-%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/index.html">
+<meta property="og:url" content="https://myxrcrs.de/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/ymoi%E9%9B%86%E8%AE%AD-%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/index.html">
 <meta property="og:site_name" content="梦游仙人CRS的博客">
 <meta property="og:description" content="基本概念 一个n×mn \times mn×m的矩阵可以被看做一个nnn行mmm列的数阵,一般用一个大写字母表示： A&#x3D;[114514],B&#x3D;[10982167]A&#x3D;\begin{bmatrix}1&amp;1&amp;4\\ 5&amp;1&amp;4\end{bmatrix}, B&#x3D;\begin{bmatrix}1&amp;0\\ 9&amp;8\\ 2&amp;1\\ 6&amp;7\en">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-18T10:28:29.000Z">
-<meta property="article:modified_time" content="2020-08-18T11:28:27.992Z">
+<meta property="article:modified_time" content="2020-08-18T11:42:06.586Z">
 <meta property="article:author" content="李星烨">
 <meta property="article:tag" content="ymoi">
 <meta property="article:tag" content="矩阵">
@@ -31,7 +31,7 @@
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1597750627009">
+  <link rel="stylesheet" href="/css/style.css?v=1597750948444">
 <meta name="generator" content="Hexo 4.2.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
@@ -239,7 +239,7 @@ mjx-container[display="true"] + br {
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/算法竞赛/">算法竞赛</a>
-          <span class="category-list-count">4</span>
+          <span class="category-list-count">5</span>
         </li>
 
         
@@ -388,7 +388,7 @@ mjx-container[display="true"] + br {
     
   <div class="nexmoe-post-copyright">
     <strong>本文作者：</strong>李星烨<br>
-    <strong>本文链接：</strong><a href="https://myxrcrs.de/uncategorized/ymoi%E9%9B%86%E8%AE%AD-%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/" title="https:&#x2F;&#x2F;myxrcrs.de&#x2F;uncategorized&#x2F;ymoi%E9%9B%86%E8%AE%AD-%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;myxrcrs.de&#x2F;uncategorized&#x2F;ymoi%E9%9B%86%E8%AE%AD-%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95&#x2F;</a><br>
+    <strong>本文链接：</strong><a href="https://myxrcrs.de/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/ymoi%E9%9B%86%E8%AE%AD-%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/" title="https:&#x2F;&#x2F;myxrcrs.de&#x2F;%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B&#x2F;ymoi%E9%9B%86%E8%AE%AD-%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;myxrcrs.de&#x2F;%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B&#x2F;ymoi%E9%9B%86%E8%AE%AD-%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95&#x2F;</a><br>
     
       <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
     
@@ -398,6 +398,8 @@ mjx-container[display="true"] + br {
   
   
   <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a>
     
     
         <a class="nexmoefont icon-tag-fill -link" href="/tags/ymoi/" rel="tag">ymoi</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/%E7%9F%A9%E9%98%B5/" rel="tag">矩阵</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" rel="tag">线性代数</a>
@@ -442,7 +444,7 @@ mjx-container[display="true"] + br {
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
 
 
-<script src="/js/app.js?v=1597750627012"></script>
+<script src="/js/app.js?v=1597750948450"></script>
   
 
 
