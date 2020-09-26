@@ -24,7 +24,7 @@
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1601123022056">
+  <link rel="stylesheet" href="/css/style.css?v=1601123303251">
 <meta name="generator" content="Hexo 4.2.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
@@ -321,7 +321,7 @@ mjx-container[display="true"] + br {
 <p>到这里，动态规划的问题就全部结束了，接下来就要思考怎么让DP上树。</p>
 <h1 id="实现"><a class="markdownIt-Anchor" href="#实现"></a> 实现</h1>
 <p>在上树之前我们先想一下怎么在链上解决。</p>
-<p>括号匹配的方法和暴力的实现方法类似，借助一个栈来解决，在栈中记录左括号的前驱节点的编号。如果当前的节点是右括号，就尝试从栈里弹出一个左括号。</p>
+<p>括号匹配的方法和<a href="#%E6%9A%B4%E5%8A%9B%E5%AE%9E%E7%8E%B0">暴力</a>的实现方法类似，借助一个栈来解决，在栈中记录左括号的前驱节点的编号。如果当前的节点是右括号，就尝试从栈里弹出一个左括号。</p>
 <pre class="highlight"><code class="C++"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; G[u].<span class="hljs-built_in">size</span>(); i++) {
     <span class="hljs-keyword">int</span> top = <span class="hljs-number">-1</span>;
     <span class="hljs-keyword">int</span> v = G[u][i];
@@ -1412,7 +1412,7 @@ mjx-container[display="true"] + br {
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
 
 
-<script src="/js/app.js?v=1601123022058"></script>
+<script src="/js/app.js?v=1601123303252"></script>
   
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
