@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>ymoi集训-线段树 - 梦游仙人CRS的博客</title>
+  <title>梦游仙人CRS的博客</title>
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -12,25 +12,19 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
-  <meta name="description" content="线段树基本概念略。 以下代码中一些宏定义如下： #define mid ((l+r)&gt;&gt;1) #define lc (o&lt;&lt;1) #define rc (o&lt;&lt;1|1) #define lcq lc,l,mid #define rcq rc,mid+1,r #define oq o,l,r #define od int o,int l,int r   线段树能解">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ymoi集训-线段树">
-<meta property="og:url" content="https://myxrcrs.de/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/ymoi%E9%9B%86%E8%AE%AD-%E7%BA%BF%E6%AE%B5%E6%A0%91/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="梦游仙人CRS的博客">
+<meta property="og:url" content="https://myxrcrs.de/page/2/index.html">
 <meta property="og:site_name" content="梦游仙人CRS的博客">
-<meta property="og:description" content="线段树基本概念略。 以下代码中一些宏定义如下： #define mid ((l+r)&gt;&gt;1) #define lc (o&lt;&lt;1) #define rc (o&lt;&lt;1|1) #define lcq lc,l,mid #define rcq rc,mid+1,r #define oq o,l,r #define od int o,int l,int r   线段树能解">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-17T05:47:53.000Z">
-<meta property="article:modified_time" content="2020-08-17T11:08:05.662Z">
 <meta property="article:author" content="李星烨">
-<meta property="article:tag" content="ymoi">
-<meta property="article:tag" content="线段树">
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css?v=233" crossorigin>
   
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1601123022027">
+  <link rel="stylesheet" href="/css/style.css?v=1601123022061">
 <meta name="generator" content="Hexo 4.2.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
@@ -288,34 +282,27 @@ mjx-container[display="true"] + br {
   </div>
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
-        <div class="nexmoe-post">
-  
-      <div class="nexmoe-post-cover" style="padding-bottom: 56.25%;"> 
-          <img data-src="https://pic.downk.cc/item/5f39dc3c14195aa594802aec.jpg" data-sizes="auto" alt="ymoi集训-线段树" class="lazyload">
-          <h1>ymoi集训-线段树</h1>
-      </div>
-  
-  
-  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2020年08月17日</a>
-    <a><i class="nexmoefont icon-areachart"></i>712 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
-</div>
-
-  <div class="nexmoe-post-right">
+        <section class="nexmoe-posts">
     
-      <div class="nexmoe-fixed">
-        <div class="nexmoe-valign">
-            <div class="nexmoe-toc">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#线段树能解决什么问题"><span class="toc-number">1.</span> <span class="toc-text"> 线段树能解决什么问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#线段树的算法流程"><span class="toc-number">2.</span> <span class="toc-text"> 线段树的算法流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#push_up"><span class="toc-number">2.1.</span> <span class="toc-text"> push_up</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#push_down"><span class="toc-number">2.2.</span> <span class="toc-text"> push_down</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#query"><span class="toc-number">2.3.</span> <span class="toc-text"> query</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#update"><span class="toc-number">2.4.</span> <span class="toc-text"> update</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#build"><span class="toc-number">2.5.</span> <span class="toc-text"> build</span></a></li></ol></li></ol>
-            </div>
+    <div class="nexmoe-post">
+        <a href="/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/ymoi%E9%9B%86%E8%AE%AD-%E7%BA%BF%E6%AE%B5%E6%A0%91/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 56.25%;"> 
+                    <img data-src="https://pic.downk.cc/item/5f39dc3c14195aa594802aec.jpg" data-sizes="auto" alt="ymoi集训-线段树" class="lazyload">
+                    <h1>ymoi集训-线段树</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2020年08月17日</a>
+            <a><i class="nexmoefont icon-areachart"></i>712 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
         </div>
-      </div>
-    
-  </div>
 
-  <article>
-    <p>线段树基本概念略。</p>
+        <article>
+            
+                <p>线段树基本概念略。</p>
 <p>以下代码中一些宏定义如下：</p>
 <pre class="highlight"><code class="C++"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> mid ((l+r)&gt;&gt;1)</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> lc (o&lt;&lt;1)</span>
@@ -445,45 +432,16 @@ mjx-container[display="true"] + br {
 </code></pre>
 <p>模板：<a href="https://github.com/CrSjimo/brush-problem/blob/master/templates/segtree.cpp" target="_blank" rel="noopener">segtree.cpp</a></p>
 
-  </article>
-
-  
+            
+        </article>
+    </div>
     
-  <div class="nexmoe-post-copyright">
-    <strong>本文作者：</strong>李星烨<br>
-    <strong>本文链接：</strong><a href="https://myxrcrs.de/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/ymoi%E9%9B%86%E8%AE%AD-%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="https:&#x2F;&#x2F;myxrcrs.de&#x2F;%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B&#x2F;ymoi%E9%9B%86%E8%AE%AD-%E7%BA%BF%E6%AE%B5%E6%A0%91&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;myxrcrs.de&#x2F;%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B&#x2F;ymoi%E9%9B%86%E8%AE%AD-%E7%BA%BF%E6%AE%B5%E6%A0%91&#x2F;</a><br>
-    
-      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
-    
-  </div>
-
-
-  
-  
-  <div class="nexmoe-post-meta nexmoe-rainbow">
-    
-        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a>
-    
-    
-        <a class="nexmoefont icon-tag-fill -link" href="/tags/ymoi/" rel="tag">ymoi</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a>
-    
-</div>
-
-  <div class="nexmoe-post-footer">
-    <section class="nexmoe-comment">
-    <div class="valine"></div>
-<script src='https://cdn.jsdelivr.net/npm/valine@1.3.9/dist/Valine.min.js'></script>
-<script>
-    // 使用方法 https://valine.js.org/quickstart.html
-    new Valine({
-        el: '.valine',
-        appId: '9pYhj8h9PLfuaVxrL5bIhqCp-MdYXbMMI',
-        appKey: 'RhyPeQLScbiukkbkKmyjYjLm'
-    })
-</script>
 </section>
-  </div>
-</div>
+
+    <nav class="nexmoe-page-nav">
+      <a class="extend prev" rel="prev" href="/"><i class="nexmoefont icon-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
@@ -507,7 +465,7 @@ mjx-container[display="true"] + br {
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
 
 
-<script src="/js/app.js?v=1601123022028"></script>
+<script src="/js/app.js?v=1601123022062"></script>
   
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
