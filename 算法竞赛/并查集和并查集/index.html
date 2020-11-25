@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>标签：矩阵 - 梦游仙人CRS的博客</title>
+  <title>并查集和并查集 - 梦游仙人CRS的博客</title>
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -12,19 +12,24 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
-  <meta property="og:type" content="website">
-<meta property="og:title" content="梦游仙人CRS的博客">
-<meta property="og:url" content="https://myxrcrs.de/tags/%E7%9F%A9%E9%98%B5/index.html">
+  <meta name="description" content="并查集的高级操作  维护并查集大小 siz[i]记录i节点所在集合的大小。 具体的做法是：  在路径压缩回溯时，将当前节点的siz置为父节点的siz。 在合并两个集合的时候，要将合并之后集合的根节点的siz加上被合并的集合的siz，然后把被合并集合的siz置为合并后集合的siz。  int find(int i){     if(f[i]&#x3D;&#x3D;i)return i;     int fi &#x3D; f[">
+<meta property="og:type" content="article">
+<meta property="og:title" content="并查集和并查集">
+<meta property="og:url" content="https://myxrcrs.de/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%92%8C%E5%B9%B6%E6%9F%A5%E9%9B%86/index.html">
 <meta property="og:site_name" content="梦游仙人CRS的博客">
+<meta property="og:description" content="并查集的高级操作  维护并查集大小 siz[i]记录i节点所在集合的大小。 具体的做法是：  在路径压缩回溯时，将当前节点的siz置为父节点的siz。 在合并两个集合的时候，要将合并之后集合的根节点的siz加上被合并的集合的siz，然后把被合并集合的siz置为合并后集合的siz。  int find(int i){     if(f[i]&#x3D;&#x3D;i)return i;     int fi &#x3D; f[">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-24T08:52:59.000Z">
+<meta property="article:modified_time" content="2020-11-25T07:58:51.966Z">
 <meta property="article:author" content="李星烨">
+<meta property="article:tag" content="并查集">
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css?v=233" crossorigin>
   
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1606291184022">
+  <link rel="stylesheet" href="/css/style.css?v=1606291184065">
 <meta name="generator" content="Hexo 4.2.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
@@ -282,22 +287,113 @@ mjx-container[display="true"] + br {
   </div>
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
-        
-<section class="nexmoe-archives">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 56.25%;"> 
+          <img data-src="https://pic.downk.cc/item/5f39dc3c14195aa594802aec.jpg" data-sizes="auto" alt="并查集和并查集" class="lazyload">
+          <h1>并查集和并查集</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年11月24日</a>
+    <a><i class="nexmoefont icon-areachart"></i>400 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+</div>
 
-    <article>
-        
+  <div class="nexmoe-post-right">
+    
+      <div class="nexmoe-fixed">
+        <div class="nexmoe-valign">
+            <div class="nexmoe-toc">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#并查集的高级操作"><span class="toc-number">1.</span> <span class="toc-text"> 并查集的高级操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#维护并查集大小"><span class="toc-number">1.1.</span> <span class="toc-text"> 维护并查集大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#维护到根节点距离"><span class="toc-number">1.2.</span> <span class="toc-text"> 维护到根节点距离</span></a></li></ol></li></ol>
+            </div>
+        </div>
+      </div>
+    
+  </div>
 
-        
-            <h2>2020</h2>
-            <ul>
-            
-                <li><span>08-18</span><a href="/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/ymoi%E9%9B%86%E8%AE%AD-%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/" >ymoi集训-矩阵乘法</a></li>
-            
-            </ul>
-        
-    </article>
+  <article>
+    <h1 id="并查集的高级操作"><a class="markdownIt-Anchor" href="#并查集的高级操作"></a> 并查集的高级操作</h1>
+<h2 id="维护并查集大小"><a class="markdownIt-Anchor" href="#维护并查集大小"></a> 维护并查集大小</h2>
+<p><code>siz[i]</code>记录<code>i</code>节点所在集合的大小。</p>
+<p>具体的做法是：</p>
+<ul>
+<li>在路径压缩回溯时，将当前节点的<code>siz</code><strong>置为</strong>父节点的<code>siz</code>。</li>
+<li>在合并两个集合的时候，要将合并之后集合的根节点的<code>siz</code><strong>加上</strong>被合并的集合的<code>siz</code>，然后把被合并集合的<code>siz</code><strong>置为</strong>合并后集合的<code>siz</code>。</li>
+</ul>
+<pre class="highlight"><code class="C++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span></span>{
+    <span class="hljs-keyword">if</span>(f[i]==i)<span class="hljs-keyword">return</span> i;
+    <span class="hljs-keyword">int</span> fi = f[i];
+    f[i]=<span class="hljs-built_in">find</span>(f[i]);
+    siz[i]=siz[f[i]];
+    <span class="hljs-keyword">return</span> f[i];
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i,<span class="hljs-keyword">int</span> j)</span></span>{
+    <span class="hljs-keyword">int</span> fi=<span class="hljs-built_in">find</span>(i),fj=<span class="hljs-built_in">find</span>(j);
+    <span class="hljs-keyword">if</span>(fi==fj)<span class="hljs-keyword">return</span>;
+    f[fi]=fj;
+    siz[fj]+=siz[fi];
+    siz[fi]=siz[fj];
+}
+</code></pre>
+<p>例题：</p>
+<ul>
+<li><a href="http://faioj.brynhild.online/problem/11012" target="_blank" rel="noopener">FAIOJ11012 「Corn#3」邪恶入侵</a> <s>CRS因为数组开小导致本应该100的程序爆10</s></li>
+</ul>
+<h2 id="维护到根节点距离"><a class="markdownIt-Anchor" href="#维护到根节点距离"></a> 维护到根节点距离</h2>
+<p>思路与维护集合大小类似，具体来说：</p>
+<ul>
+<li>在路径压缩回溯时，将当前节点的<code>dis</code><strong>加上</strong>父节点的<code>dis</code>。</li>
+<li>在合并两个集合的时候，如果是连边到末尾，要将被合并集合根节点的<code>dis</code><strong>置为</strong>合并后集合的根节点的原<code>siz</code>。</li>
+<li>对于其他情况的<code>dis</code>更新方法视不同情况而定。</li>
+</ul>
+<p>例题：</p>
+<ul>
+<li>银河英雄传说</li>
+<li><a href="https://www.luogu.com.cn/problem/P2661" target="_blank" rel="noopener">洛谷P2261 NOIp2015 信息传递</a></li>
+</ul>
+<p>注：信息传递这道题由于"每人只会把信息告诉一个人"（出度全为1）的限定条件的存在，事实上可以用tarjan来求最小环（这也是我最开始想到的方法），但是这个方法必须要有这个限制条件的情况下才好用，反例请读者自行举出。</p>
+
+  </article>
+
+  
+    
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>李星烨<br>
+    <strong>本文链接：</strong><a href="https://myxrcrs.de/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%92%8C%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="https:&#x2F;&#x2F;myxrcrs.de&#x2F;%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B&#x2F;%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%92%8C%E5%B9%B6%E6%9F%A5%E9%9B%86&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;myxrcrs.de&#x2F;%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B&#x2F;%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%92%8C%E5%B9%B6%E6%9F%A5%E9%9B%86&#x2F;</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -link" href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" rel="tag">并查集</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.9/dist/Valine.min.js'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: '9pYhj8h9PLfuaVxrL5bIhqCp-MdYXbMMI',
+        appKey: 'RhyPeQLScbiukkbkKmyjYjLm'
+    })
+</script>
 </section>
+  </div>
+</div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
@@ -321,7 +417,7 @@ mjx-container[display="true"] + br {
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
 
 
-<script src="/js/app.js?v=1606291184023"></script>
+<script src="/js/app.js?v=1606291184066"></script>
   
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
