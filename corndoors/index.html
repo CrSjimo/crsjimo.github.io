@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+  
+  <title>充满玉米味的门 - 梦游仙人CRS的博客</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="description" content="方块类 graph LR 	AbstractPanel--&gt;AbstractTemplateDoor 	AbstractTemplateDoor--&gt;AbstractIndividualDoor 	AbstractTemplateDoor--&gt;AbstractDualDoorEdge 	AbstractIndividualDoor--&gt;AbstractDoor 	Abst">
+<meta property="og:type" content="website">
+<meta property="og:title" content="充满玉米味的门">
+<meta property="og:url" content="https://myxrcrs.de/corndoors/index.html">
+<meta property="og:site_name" content="梦游仙人CRS的博客">
+<meta property="og:description" content="方块类 graph LR 	AbstractPanel--&gt;AbstractTemplateDoor 	AbstractTemplateDoor--&gt;AbstractIndividualDoor 	AbstractTemplateDoor--&gt;AbstractDualDoorEdge 	AbstractIndividualDoor--&gt;AbstractDoor 	Abst">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-02-10T03:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-10T03:05:00.738Z">
+<meta property="article:author" content="李星烨">
+<meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css?v=233" crossorigin>
+  
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1612926309591">
+<meta name="generator" content="Hexo 4.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://pic.downk.cc/item/5f39dc3c14195aa594802aec.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="李星烨" class="mdui-btn mdui-btn-icon"><img src="https://pic.downk.cc/item/5f39dbf314195aa5948018b9.jpg" alt="李星烨"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="李星烨">
+            <img src="https://pic.downk.cc/item/5f39dbf314195aa5948018b9.jpg" alt="李星烨" alt="李星烨">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>13</div>
+        <div><span>标签</span>17</div>
+        <div><span>分类</span>1</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY" title="友情链接">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                友情链接
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        <form id="search_form" action_e="https://cn.bing.com/search?q=site:myxrcrs.de" onsubmit="return search();">
+            <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+        </form>
+    </div>
+</div>
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">社交按钮</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/294876424" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/CrSjimo/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="mailto:crs_16423@outlook.com" target="_blank" mdui-tooltip="{content: 'Email'}" style="color: rgb(0, 160, 233);background-color: rgba(0, 160, 233, .15);">
+            <i class="nexmoefont icon-mail-fill"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/算法竞赛/">算法竞赛</a>
+          <span class="category-list-count">11</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/DP/" style="font-size: 13.33px;">DP</a> <a href="/tags/Tarjan%E7%AE%97%E6%B3%95/" style="font-size: 10px;">Tarjan算法</a> <a href="/tags/ymoi/" style="font-size: 20px;">ymoi</a> <a href="/tags/%E5%8F%AF%E5%B9%B6%E5%A0%86/" style="font-size: 10px;">可并堆</a> <a href="/tags/%E5%A0%86/" style="font-size: 10px;">堆</a> <a href="/tags/%E5%B7%A6%E5%81%8F%E6%A0%91/" style="font-size: 10px;">左偏树</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 10px;">并查集</a> <a href="/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" style="font-size: 10px;">强连通分量</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%A0%91/" style="font-size: 10px;">树</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">树状数组</a> <a href="/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" style="font-size: 13.33px;">树链剖分</a> <a href="/tags/%E7%82%B9%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" style="font-size: 10px;">点双连通分量</a> <a href="/tags/%E7%9F%A9%E9%98%B5/" style="font-size: 10px;">矩阵</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" style="font-size: 10px;">线性代数</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 16.67px;">线段树</a> <a href="/tags/%E8%BE%B9%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" style="font-size: 10px;">边双连通分量</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">13</span></li></ul>
+    </div>
+  </div>
+
+
+<style>
+.nexmoe-widget .archive-list-count{
+	position : absolute;
+	right: 15px;
+	top:9px;
+	color: #DDD;
+}
+</style>
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 李星烨
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 56.25%;"> 
+          <img data-src="https://pic.downk.cc/item/5f39dc3c14195aa594802aec.jpg" data-sizes="auto" alt="充满玉米味的门" class="lazyload">
+          <h1>充满玉米味的门</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年02月10日</a>
+    <a><i class="nexmoefont icon-areachart"></i>717 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+</div>
+
+  <div class="nexmoe-post-right">
+    
+      <div class="nexmoe-fixed">
+        <div class="nexmoe-valign">
+            <div class="nexmoe-toc">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#方块类"><span class="toc-number">1.</span> <span class="toc-text"> 方块类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方块状态属性"><span class="toc-number">1.1.</span> <span class="toc-text"> 方块状态属性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#命令toggledoor"><span class="toc-number">2.</span> <span class="toc-text"> 命令&#x2F;toggledoor</span></a></li></ol>
+            </div>
+        </div>
+      </div>
+    
+  </div>
+
+  <article>
+    <h1 id="方块类"><a class="markdownIt-Anchor" href="#方块类"></a> 方块类</h1>
+<pre class="mermaid">graph LR
+	AbstractPanel--&gt;AbstractTemplateDoor
+	AbstractTemplateDoor--&gt;AbstractIndividualDoor
+	AbstractTemplateDoor--&gt;AbstractDualDoorEdge
+	AbstractIndividualDoor--&gt;AbstractDoor
+	AbstractIndividualDoor--&gt;AbstractStretchDoor
+	AbstractDoor--&gt;AbstractDoorWithDualDoorEdge
+	
+	AbstractPanel--&gt;NaivePanel
+	style NaivePanel fill: #abcdef
+	AbstractPanel--&gt;GlassPanel
+	style GlassPanel fill: #abcdef
+	AbstractPanel--&gt;CornIronPanel
+	style CornIronPanel fill: #abcdef
+	
+	AbstractDoor--&gt;NaiveDoor
+	style NaiveDoor fill: #abcdef
+	AbstractDoor--&gt;GlassDoor
+	style GlassDoor fill: #abcdef
+	
+	AbstractDoorWithDualDoorEdge--&gt;DNaiveDoor
+	style DNaiveDoor fill: #abcdef
+	AbstractDoorWithDualDoorEdge--&gt;ChannelInnerDoor
+	style ChannelInnerDoor fill: #abcdef
+	AbstractDoorWithDualDoorEdge--&gt;ChannelOuterDoor
+	style ChannelOuterDoor fill: #abcdef
+	
+	AbstractDualDoorEdge--&gt;DNaiveDualDoorEdge
+	style DNaiveDualDoorEdge fill: #abcdef
+	AbstractDualDoorEdge--&gt;ChannelInnerDualDoor
+	style ChannelInnerDualDoor fill: #abcdef
+	AbstractDualDoorEdge--&gt;ChannelOuterDualDoor
+	style ChannelOuterDualDoor fill: #abcdef
+	
+	AbstractStretchDoor--&gt;StretchGate
+	style StretchGate fill: #abcdef
+	
+	style INaiveDoor  fill: #aa7
+	INaiveDoor-.-&gt;NaiveDoor
+	INaiveDoor-.-&gt;DNaiveDoor
+	INaiveDoor-.-&gt;DNaiveDualDoorEdge
+	
+	style IRotateDoor fill: #aa7
+	IRotateDoor-.-&gt;AbstractDoor
+	IRotateDoor-.-&gt;AbstractDualDoorEdge</pre>
+<table>
+<thead>
+<tr>
+<th>注册属性名</th>
+<th>方块id</th>
+<th>有无对应物品</th>
+<th>方块类</th>
+<th>渲染类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NAIVE_PANEL</code></td>
+<td><code>naive_panel</code></td>
+<td>✔</td>
+<td><code>NaivePanel</code></td>
+<td>默认</td>
+</tr>
+<tr>
+<td><code>GLASS_PANEL</code></td>
+<td><code>glass_panel</code></td>
+<td>✔<br><code>GlassPanel.BeltType</code></td>
+<td><code>GlassPanel</code></td>
+<td>Cutout</td>
+</tr>
+<tr>
+<td><code>CORN_IRON_PANEL</code></td>
+<td><code>corn_iron_panel</code></td>
+<td>✔<br><code>CornIronPanel.CornIronPanelType</code></td>
+<td><code>CornIronPanel</code></td>
+<td>Cutout</td>
+</tr>
+<tr>
+<td><code>NAIVE_DOOR</code></td>
+<td><code>naive_door</code></td>
+<td>✔<br><code>INaiveDoor.DoorWindowType</code></td>
+<td><code>NaiveDoor</code></td>
+<td>Translucent</td>
+</tr>
+<tr>
+<td><code>GLASS_DOOR</code></td>
+<td><code>glass_door</code></td>
+<td>✔</td>
+<td><code>GlassDoor</code></td>
+<td>Cutout</td>
+</tr>
+<tr>
+<td><code>D_NAIVE_DOOR_EDGE</code></td>
+<td><code>d_naive_door_edge</code></td>
+<td>✔<br><code>INaiveDoor.DoorWindowType</code></td>
+<td><code>DNaiveDualDoorEdge</code></td>
+<td>Translucent</td>
+</tr>
+<tr>
+<td><code>D_NAIVE_DOOR</code></td>
+<td><code>d_naive_door</code></td>
+<td>❌</td>
+<td><code>DNaiveDoor</code></td>
+<td>Translucent</td>
+</tr>
+<tr>
+<td><code>STRETCH_GATE</code></td>
+<td><code>stretch_gate</code></td>
+<td>✔</td>
+<td><code>StretchGate</code></td>
+<td>Cutout</td>
+</tr>
+<tr>
+<td><code>CHANNEL_INNER_DOOR_EDGE</code></td>
+<td><code>channel_inner_door_edge</code></td>
+<td>✔</td>
+<td><code>ChannelInnerDualDoor</code></td>
+<td>Cutout</td>
+</tr>
+<tr>
+<td><code>CHANNEL_INNER_DOOR</code></td>
+<td><code>channel_inner_door</code></td>
+<td>❌</td>
+<td><code>ChannelInnerDoor</code></td>
+<td>Cutout</td>
+</tr>
+<tr>
+<td><code>CHANNEL_OUTER_DOOR_EDGE</code></td>
+<td><code>channel_outer_door_edge</code></td>
+<td>✔</td>
+<td><code>ChannelOuterDualDoor</code></td>
+<td>Cutout</td>
+</tr>
+<tr>
+<td><code>CHANNEL_OUTER_DOOR</code></td>
+<td><code>channel_outer_door</code></td>
+<td>❌</td>
+<td><code>ChannelOuterDoor</code></td>
+<td>Cutout</td>
+</tr>
+</tbody>
+</table>
+<p>关于方块注册的更多内容，请参见<a href="https://github.com/CrSjimo/corn-doors/blob/master/src/main/java/de/myxrcrs/corndoors/init/InitBlocks.java" target="_blank" rel="noopener">InitBlocks.java</a></p>
+<h2 id="方块状态属性"><a class="markdownIt-Anchor" href="#方块状态属性"></a> 方块状态属性</h2>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性id</th>
+<th>定义在</th>
+<th>取值</th>
+<th>描述</th>
+<th>属性的设置方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FACING</code></td>
+<td><code>facing</code></td>
+<td><code>AbstractPanel</code></td>
+<td><code>ne.mi.ut.Direction</code></td>
+<td>门板所面向的水平方向</td>
+<td>放置时</td>
+</tr>
+<tr>
+<td><code>IS_OPENED</code></td>
+<td><code>is_opened</code></td>
+<td><code>AbstractTemplateDoor</code></td>
+<td><code>boolean</code></td>
+<td>门是否打开</td>
+<td>放置时/方块被激活时/通过指令</td>
+</tr>
+<tr>
+<td><code>HINGE</code></td>
+<td><code>hinge</code></td>
+<td><code>AbstractIndividualDoor</code></td>
+<td><code>ne.mi.st.pr.DoorHingeSide</code></td>
+<td>合页在左边还是在右边</td>
+<td>放置时</td>
+</tr>
+<tr>
+<td><code>PART</code></td>
+<td><code>part</code></td>
+<td><code>AbstractDualDoorEdge</code></td>
+<td><code>de.my.co.bl.AbstractDualDoorEdge.DualDoorEdgePart</code></td>
+<td>双开门边框的组成部分（左边，右边或左右都有）</td>
+<td>放置时/方块被激活时/通过指令</td>
+</tr>
+<tr>
+<td><code>HORIZONTAL_POS</code></td>
+<td><code>horizontal_pos</code></td>
+<td><code>AbstractIndividualDoor</code>的非抽象子类中</td>
+<td><code>int</code></td>
+<td>当前方块在整个门方块中的水平位置</td>
+<td>自动设置</td>
+</tr>
+<tr>
+<td><code>VERTICAL_POS</code></td>
+<td><code>vertical_pos</code></td>
+<td><code>AbstractTemplateDoor</code>的非抽象子类中</td>
+<td><code>int</code></td>
+<td>当前方块在整个门方块中的竖直位置</td>
+<td>自动设置</td>
+</tr>
+<tr>
+<td><code>WINDOW</code></td>
+<td><code>window</code></td>
+<td><code>INaiveDoor</code></td>
+<td><code>de.my.co.bl.INaiveDoor.DoorWindowType</code></td>
+<td>门的窗户类型（玻璃窗，镀膜玻璃窗或者无窗）</td>
+<td>物品类型</td>
+</tr>
+<tr>
+<td><code>HORIZONTAL_MODEL_TYPE</code></td>
+<td><code>h_type</code></td>
+<td><code>StretchGate</code></td>
+<td><code>de.my.co.bl.St.HorizontalModelType</code></td>
+<td>伸缩大门在水平方向上应用的模型类型</td>
+<td>自动设置</td>
+</tr>
+<tr>
+<td><code>VERTICAL_MODEL_TYPE</code></td>
+<td><code>v_type</code></td>
+<td><code>StretchGate</code></td>
+<td><code>de.my.co.bl.St.VerticalModelType</code></td>
+<td>伸缩大门在竖直方向上应用的模型类型</td>
+<td>自动设置</td>
+</tr>
+<tr>
+<td><code>TEXTURE_DIRECTION</code></td>
+<td><code>texture_direction</code></td>
+<td><code>NaivePanel</code></td>
+<td><code>de.my.co.bl.Na.TextureDirection</code></td>
+<td>木质纹理方向</td>
+<td>放置时</td>
+</tr>
+<tr>
+<td><code>BELT_TYPE</code></td>
+<td><code>belt_type</code></td>
+<td><code>GlassPanel</code></td>
+<td><code>de.my.co.bl.Gl.BeltType</code></td>
+<td>玻璃门板的条带类型（蓝色条带或无条带）</td>
+<td>物品类型</td>
+</tr>
+<tr>
+<td><code>NEAR_ANDESITE</code></td>
+<td><code>near_andesite</code></td>
+<td><code>CornIronPanel</code></td>
+<td><code>boolean</code></td>
+<td>门板下前方是否为平滑安山岩</td>
+<td>放置时/方块更新</td>
+</tr>
+<tr>
+<td><code>TYPE</code></td>
+<td><code>type</code></td>
+<td><code>CornIronPanel</code></td>
+<td><code>de.my.co.bl.co.CornIronPanelType</code></td>
+<td>门板的窗户类型（无窗，顶部，底部或充满）</td>
+<td>物品类型</td>
+</tr>
+</tbody>
+</table>
+<h1 id="命令toggledoor"><a class="markdownIt-Anchor" href="#命令toggledoor"></a> 命令<code>/toggledoor</code></h1>
+<p>格式：</p>
+<ul>
+<li>
+<p><code>/toggledoor &lt;from: BlockPos&gt; &lt;to: BlockPos&gt; [close|open|toggle]</code></p>
+</li>
+<li>
+<p><code>/toggledoor &lt;pos: BlockPos&gt; &lt;radius: int&gt; [close|open|toggle]</code></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>取值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>from</code></td>
+<td><code>BlockPos</code></td>
+<td>范围起点</td>
+</tr>
+<tr>
+<td><code>to</code></td>
+<td><code>BlockPos</code></td>
+<td>范围终点</td>
+</tr>
+<tr>
+<td><code>pos</code></td>
+<td><code>BlockPos</code></td>
+<td>中心点</td>
+</tr>
+<tr>
+<td><code>radius</code></td>
+<td><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.439ex" xmlns="http://www.w3.org/2000/svg" width="16.75ex" height="1.984ex" role="img" focusable="false" viewBox="0 -683 7403.3 877"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g><g data-mml-node="mo" transform="translate(777.8, 0)"><path data-c="2264" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g data-mml-node="mi" transform="translate(1833.6, 0)"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(2562.3, 0)"><path data-c="2264" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g data-mml-node="mn" transform="translate(3618.1, 0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z" transform="translate(500, 0)"></path></g><g data-mml-node="mo" transform="translate(4618.1, 0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(5062.8, 0)"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(5791.6, 0)"><path data-c="2208" d="M84 250Q84 372 166 450T360 539Q361 539 377 539T419 540T469 540H568Q583 532 583 520Q583 511 570 501L466 500Q355 499 329 494Q280 482 242 458T183 409T147 354T129 306T124 272V270H568Q583 262 583 250T568 230H124V228Q124 207 134 177T167 112T231 48T328 7Q355 1 466 0H570Q583 -10 583 -20Q583 -32 568 -40H471Q464 -40 446 -40T417 -41Q262 -41 172 45Q84 127 84 250Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(6736.3, 0)"><g data-mml-node="mi"><path data-c="2124" d="M39 -1Q29 9 29 12Q29 23 60 77T219 337L410 648H364Q261 648 210 628Q168 612 142 588T109 545T97 509T88 490Q85 489 80 489Q72 489 61 503L70 588Q72 607 75 628T79 662T81 675Q84 677 88 681Q90 683 341 683H592Q604 673 604 666Q604 662 412 348L221 37Q221 35 301 35Q406 35 446 48Q504 68 543 111T597 212Q602 239 617 239Q624 239 629 234T635 223Q635 215 621 113T604 8L597 1Q595 -1 317 -1H39ZM148 637L166 648H112V632Q111 629 110 622T108 612Q108 608 110 608T116 612T129 623T148 637ZM552 646Q552 648 504 648Q452 648 450 643Q448 639 266 343T77 37Q77 35 128 35H179L366 339L552 646ZM572 35Q581 89 581 97L561 77Q542 59 526 48L508 37L539 35H572Z"></path></g></g></g></g></svg></mjx-container></td>
+<td>半径（注：实为正方体的半边长）</td>
+</tr>
+<tr>
+<td><code>close|open|toggle</code></td>
+<td></td>
+<td><ul><li>若为close，则只会打开已关闭的门</li><li>若为open，则只会关闭已打开的门</li><li>若为toggle或缺省，则会在开/关之间切换</li></ul></td>
+</tr>
+</tbody>
+</table>
+
+  </article>
+
+  
+    
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>李星烨<br>
+    <strong>本文链接：</strong><a href="https://myxrcrs.de/corndoors/index.html" title="https:&#x2F;&#x2F;myxrcrs.de&#x2F;corndoors&#x2F;index.html" target="_blank" rel="noopener">https:&#x2F;&#x2F;myxrcrs.de&#x2F;corndoors&#x2F;index.html</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.9/dist/Valine.min.js'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: '9pYhj8h9PLfuaVxrL5bIhqCp-MdYXbMMI',
+        appKey: 'RhyPeQLScbiukkbkKmyjYjLm'
+    })
+</script>
+</section>
+  </div>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script >hljs.initHighlightingOnLoad();</script>
+
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js'></script>
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+        }
+    </script>
+    <style>
+        article pre.mermaid{
+            background:inherit;
+        }
+    </style>
+
+
+
+    <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+
+<script src="/js/app.js?v=1612926309592"></script>
+  
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-175994148-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-175994148-1');
+</script>
+
+
+
+
+
+</body>
+
+</html>
