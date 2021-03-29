@@ -1,7 +1,14 @@
 ---
 title: 充满玉米味的门
 date: 2021-02-10 11:00:00
+cover: https://img.imgdb.cn/item/600102dd3ffa7d37b318a7dd.png
+coverWidth: 854
+coverHeight: 480
 ---
+
+# 下载链接
+
+[corndoors-0.0.1-alpha](./corndoors-0.0.1-alpha.jar)
 
 # 方块类
 

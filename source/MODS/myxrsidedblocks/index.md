@@ -3,7 +3,7 @@ title: 梦游仙人CRS的多侧边方块
 date: 2020-11-02 16:35:01
 ---
 
-内测版本v0.1-alpha
+[下载链接](./sidedblocks-0.1.5-alpha.jar)
 
 方块类别：
 
