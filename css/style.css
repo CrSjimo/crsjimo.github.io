@@ -10,12 +10,6 @@ body {
   max-width: 1200px;
   margin: auto !important;
 }
-#nexmoe-content * {
-  transform: rotate(-2deg);
-}
-#nexmoe-content {
-  transform: translate(50%);
-}
 #nexmoe-background .nexmoe-bg {
   opacity: 0.2;
   background-size: cover;
@@ -397,6 +391,12 @@ body {
   }
 }
 @media screen and (min-width: 1024px) {
+  #nexmoe-content * {
+    transform: rotate(-2deg);
+  }
+  #nexmoe-content {
+    transform: translate(50%);
+  }
   body {
     padding-left: 80px;
   }
