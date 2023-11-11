@@ -56,13 +56,35 @@ menu:
   Tags: true
   Archives: true
   Friends: false
+  # 一个 github 项目的外部链接
+  Projects:
+    name: Projects
+    i18n:
+      en: Projects
+      zh-CN: '项目'
+      zh-TW: '項目'
+    children:
+      talcs:
+        name: TALCS
+        i18n:
+          en: TALCS
+          zh-CN: TALCS
+          zh-TW: TALCS
+        path: 'https://talcs.sjimo.dev/'
+      diffscope:
+        name: DiffScope
+        i18n:
+          en: DiffScope
+          zh-CN: DiffScope
+          zh-TW: DiffScope
+        path: 'https://github.com/openvpi/diffscope'
 
 #! ---------------------------------------------------------------
 #! Theme Config
 #! @docs https://aurora.tridiamond.tech/guide/theme.html
 #! ---------------------------------------------------------------
 theme:
-  dark_mode: true
+  dark_mode: auto
   profile_shape: rounded # support `circle`, `diamond`, `rounded`
   feature: true
   gradient:
